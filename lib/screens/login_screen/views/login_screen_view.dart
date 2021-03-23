@@ -1,6 +1,7 @@
 import 'package:cp_delivery/common/common.dart';
 import 'package:cp_delivery/components/components.dart';
 import 'package:cp_delivery/screens/login_screen/login_screen.dart';
+import 'package:cp_delivery/screens/registration_screen/registration_screen.dart';
 import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -51,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 15),
                   FlxButton(
                     text: 'Регистрация',
-                    onTap: () => controller.onRegistrationButtonTap(),
+                    onTap: () => RegistrationScreenRouter().navigate(),
                     color: Colors.grey[800],
                   ),
                 ],
