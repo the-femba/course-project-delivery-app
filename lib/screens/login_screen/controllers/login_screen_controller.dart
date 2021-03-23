@@ -7,17 +7,17 @@ class LoginScreenController extends GetxController {
 
   bool get isLoading => _isLoading;
 
-  void onLoginButtonTap() {
+  void onLoginButtonTap() async {
     // TODO: Add True logic
     // TODO: Remove Fakes
 
     _isLoading = true;
     update();
 
-    Timer(Duration(milliseconds: 250), () {
-      _isLoading = false;
-      update();
-    });
+    await Future.delayed(Duration(milliseconds: 250));
+
+    _isLoading = false;
+    update();
   }
 
   void onRegistrationButtonTap() {}
