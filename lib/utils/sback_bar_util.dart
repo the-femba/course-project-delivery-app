@@ -6,5 +6,6 @@ void showSnackbar(String title, String message) {
   Get.showSnackbar(GetBar(
     titleText: Text(title, style: titleStyle),
     messageText: Text(message, style: textStyle),
+    duration: Duration(seconds: 3),
   ));
 }

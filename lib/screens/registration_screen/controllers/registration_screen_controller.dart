@@ -16,6 +16,6 @@ class RegistrationScreenController extends GetxController {
     _isLoading = false;
     update();
 
-    showSnackbar('Ошибка', 'Не удается зарегестрироваться');
+    showSnackbar('Ошибка', 'Не удается зарегистрироваться');
   }
 }
