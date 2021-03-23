@@ -21,7 +21,7 @@ class LoaderContainer extends StatelessWidget {
         if (isLoading ?? false)
           Positioned(
             child: Container(
-              color: Colors.white10,
+              color: Colors.white.withAlpha(10),
               child: Center(child: Loader(progress: progress)),
             ),
           )
