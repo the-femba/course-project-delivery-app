@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       getPages: [
         SplashScreenRouter().build(),
+        LoginScreenRouter().build(),
       ],
       initialRoute: SplashScreenRouter().name,
     );
