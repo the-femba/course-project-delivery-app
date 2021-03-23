@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         SplashScreenRouter().build(),
         LoginScreenRouter().build(),
+        RegistrationScreenRouter().build(),
       ],
       initialRoute: SplashScreenRouter().name,
     );

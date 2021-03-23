@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:cp_delivery/screens/login_screen/login_screen.dart';
+import 'package:felix_ui/felix_ui.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController {
   @override
   void onInit() {
     // TODO: Remove Fake
+
     Timer(
       Duration(seconds: 1),
       () => routeByloginStatus(),
@@ -17,6 +19,6 @@ class SplashScreenController extends GetxController {
 
   void routeByloginStatus() {
     // TODO: Add logic
-    LoginScreenRouter().navigate();
+    LoginScreenRouter().navigate(strategy: NavigateStrategy.deleteAll);
   }
 }

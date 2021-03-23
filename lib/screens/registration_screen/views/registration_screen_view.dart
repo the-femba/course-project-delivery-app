@@ -1,15 +1,15 @@
 import 'package:cp_delivery/common/common.dart';
 import 'package:cp_delivery/components/components.dart';
-import 'package:cp_delivery/screens/login_screen/login_screen.dart';
+import 'package:cp_delivery/screens/registration_screen/registration_screen.dart';
 import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegistrationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<LoginScreenController>(
-      init: LoginScreenController(),
+    return GetBuilder<RegistrationScreenController>(
+      init: RegistrationScreenController(),
       builder: (controller) => Scaffold(
         body: LoaderContainer(
           isLoading: controller.isLoading,
@@ -25,8 +25,21 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 50,
-                    child:
-                        Center(child: Text('Delivery Вход', style: titleStyle)),
+                    child: Row(
+                      children: [
+                        FlxPointButton(
+                          onTap: () => Get.back(),
+                          icon: Icons.arrow_back,
+                        ),
+                        Expanded(
+                          child: Center(
+                            child:
+                                Text('Delivery Регистрация', style: titleStyle),
+                          ),
+                        ),
+                        SizedBox(width: 50, height: 50),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 15),
                   Expanded(
@@ -37,7 +50,14 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             FlxTextField(placeholder: 'Email'),
                             SizedBox(height: 15),
+                            FlxTextField(placeholder: 'Имя'),
+                            SizedBox(height: 15),
+                            FlxTextField(placeholder: 'Фамилия'),
+                            SizedBox(height: 15),
                             FlxTextField(placeholder: 'Пароль', isMasked: true),
+                            SizedBox(height: 15),
+                            FlxTextField(
+                                placeholder: 'Повтор пароля', isMasked: true),
                           ],
                         ),
                       ),
@@ -45,14 +65,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 15),
                   FlxButton(
-                    text: 'Войти',
-                    onTap: () => controller.onLoginButtonTap(),
-                  ),
-                  SizedBox(height: 15),
-                  FlxButton(
-                    text: 'Регистрация',
+                    text: 'Зарегистрироваться',
                     onTap: () => controller.onRegistrationButtonTap(),
-                    color: Colors.grey[800],
                   ),
                 ],
               ),
