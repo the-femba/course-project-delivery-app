@@ -1,0 +1,45 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    prefer_single_quotes: true
+    sort_constructors_first: false
+    sort_child_properties_last: true
+    sized_box_for_whitespace: true
+    recursive_getters: true
+    always_declare_return_types: true
+    always_put_control_body_on_new_line: true
+    annotate_overrides: true
+    avoid_catching_errors: true
+    avoid_catches_without_on_clauses: true
+    avoid_init_to_null: true
+    await_only_futures: true
+    avoid_void_async: true
+    camel_case_extensions: true
+    camel_case_types: true
+    library_prefixes: true
+    library_names: true
+    avoid_types_as_parameter_names: true
+    lines_longer_than_80_chars: true
+    avoid_classes_with_only_static_members: false
+    constant_identifier_names: true
+    file_names: true
+    unnecessary_final: true
+    prefer_final_locals: false
+    prefer_const_constructors: false
+    sort_pub_dependencies: false
+    unused_import: false
+    prefer_const_literals_to_create_immutables: false
+    directives_ordering: false
+    always_put_required_named_parameters_first: true
+
+analyzer:
+  errors:
+    missing_required_param: error
+    library_names: error
+    file_names: error
+    annotate_overrides: error
+    camel_case_extensions: error
+    camel_case_types: error
+    unnecessary_final: error
+    must_be_immutable: error
