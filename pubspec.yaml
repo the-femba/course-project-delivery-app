@@ -24,3 +24,18 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: e-Ukraine
+      fonts:
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-Thin.otf
+          weight: 100
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-UltraLight.otf
+          weight: 200
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-Light.otf
+          weight: 300
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-Regular.otf
+          weight: 400
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-Medium.otf
+          weight: 500
+        - asset: assets/fonts/e-Ukraine/e-Ukraine-Bold.otf
+          weight: 700
