@@ -1,0 +1,1 @@
+export 'package:cp_delivery/components/loader/loader.dart';
