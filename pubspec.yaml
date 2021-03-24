@@ -13,6 +13,10 @@ dependencies:
     git:
       url: https://github.com/the-flx/FlxUI.git
       ref: 1.0.0
+  flx_ui:
+    git:
+      url: https://github.com/the-flx/FlxUI.git
+      ref: 2.0.0-candidate
   get: ^3.26.0
   shimmer: ^1.1.2
   dio: ^3.0.10

@@ -102,6 +102,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flx_ui:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: "2.0.0-candidate"
+      resolved-ref: f4d0b84eea6f3670c572597563a21232685efbd2
+      url: "https://github.com/the-flx/FlxUI.git"
+    source: git
+    version: "2.0.0"
   get:
     dependency: "direct main"
     description:
