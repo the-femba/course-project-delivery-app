@@ -26,8 +26,9 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 50,
-                    child:
-                        Center(child: Text('Delivery Вход', style: titleStyle)),
+                    child: Center(
+                        child:
+                            Text('Delivery Вход <тризуб>', style: titleStyle)),
                   ),
                   SizedBox(height: 15),
                   Expanded(
@@ -36,9 +37,20 @@ class LoginScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            FlxTextField(placeholder: 'Email'),
+                            FlxTextField(
+                              placeholder: 'Email',
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController value) =>
+                                  controller.emailText = value.text,
+                            ),
                             SizedBox(height: 15),
-                            FlxTextField(placeholder: 'Пароль', isMasked: true),
+                            FlxTextField(
+                              placeholder: 'Пароль',
+                              isMasked: true,
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController value) =>
+                                  controller.passwordText = value.text,
+                            ),
                           ],
                         ),
                       ),

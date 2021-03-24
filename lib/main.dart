@@ -3,7 +3,10 @@ import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'init_api.dart';
+
 void main() {
+  initApi();
   runApp(MyApp());
 }
 
