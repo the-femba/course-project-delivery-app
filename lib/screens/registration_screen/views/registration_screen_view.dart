@@ -48,11 +48,11 @@ class RegistrationScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            FlxTextField(placeholder: 'Email'),
-                            SizedBox(height: 15),
                             FlxTextField(placeholder: 'Имя'),
                             SizedBox(height: 15),
                             FlxTextField(placeholder: 'Фамилия'),
+                            SizedBox(height: 15),
+                            FlxTextField(placeholder: 'Email'),
                             SizedBox(height: 15),
                             FlxTextField(placeholder: 'Пароль', isMasked: true),
                             SizedBox(height: 15),
