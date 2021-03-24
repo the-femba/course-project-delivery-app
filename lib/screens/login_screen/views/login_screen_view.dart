@@ -26,9 +26,8 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 50,
-                    child: Center(
-                        child:
-                            Text('Delivery Вход <тризуб>', style: titleStyle)),
+                    child:
+                        Center(child: Text('Delivery Вход', style: titleStyle)),
                   ),
                   SizedBox(height: 15),
                   Expanded(

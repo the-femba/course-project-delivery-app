@@ -16,6 +16,7 @@ dependencies:
   get: ^3.26.0
   shimmer: ^1.1.2
   dio: ^3.0.10
+  shared_preferences: ^2.0.5
 
 dev_dependencies:
   flutter_test:
