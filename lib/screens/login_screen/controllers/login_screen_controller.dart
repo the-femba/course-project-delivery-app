@@ -2,8 +2,11 @@ import 'dart:async';
 
 import 'package:cp_delivery/api/api.dart';
 import 'package:cp_delivery/init_api.dart';
+import 'package:cp_delivery/screens/screens.dart';
 import 'package:cp_delivery/utils/sback_bar_util.dart';
+import 'package:felix_ui/felix_ui.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreenController extends GetxController {
   bool _isLoading = false;
@@ -24,7 +27,11 @@ class LoginScreenController extends GetxController {
         password: passwordText,
       );
 
-      showSnackbar('Успешно', 'Ваш токен это ${token.token}');
+      var prefs = await SharedPreferences.getInstance();
+
+      await prefs.setString('token', token.token);
+
+      SplashScreenRouter().navigate(strategy: NavigateStrategy.deleteAll);
     } on NotExistsDeliveryException catch (e) {
       showSnackbar(
           'Не удалось войти', 'Перепроверьте ваши данные и попробуйте снова');

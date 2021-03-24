@@ -48,16 +48,42 @@ class RegistrationScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            FlxTextField(placeholder: 'Имя'),
-                            SizedBox(height: 15),
-                            FlxTextField(placeholder: 'Фамилия'),
-                            SizedBox(height: 15),
-                            FlxTextField(placeholder: 'Email'),
-                            SizedBox(height: 15),
-                            FlxTextField(placeholder: 'Пароль', isMasked: true),
+                            FlxTextField(
+                              placeholder: 'Имя',
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController ctrl) =>
+                                  controller.firstNameText = ctrl.text,
+                            ),
                             SizedBox(height: 15),
                             FlxTextField(
-                                placeholder: 'Повтор пароля', isMasked: true),
+                              placeholder: 'Фамилия',
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController ctrl) =>
+                                  controller.lastNameText = ctrl.text,
+                            ),
+                            SizedBox(height: 15),
+                            FlxTextField(
+                              placeholder: 'Email',
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController ctrl) =>
+                                  controller.emailText = ctrl.text,
+                            ),
+                            SizedBox(height: 15),
+                            FlxTextField(
+                              placeholder: 'Пароль',
+                              isMasked: true,
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController ctrl) =>
+                                  controller.passwordText = ctrl.text,
+                            ),
+                            SizedBox(height: 15),
+                            FlxTextField(
+                              placeholder: 'Повтор пароля',
+                              isMasked: true,
+                              onFocusChange: (focus) {},
+                              onTextChange: (TextEditingController ctrl) =>
+                                  controller.repeatPasswordText = ctrl.text,
+                            ),
                           ],
                         ),
                       ),

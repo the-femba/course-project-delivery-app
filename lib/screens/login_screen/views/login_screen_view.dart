@@ -4,7 +4,6 @@ import 'package:cp_delivery/screens/login_screen/login_screen.dart';
 import 'package:cp_delivery/screens/registration_screen/registration_screen.dart';
 import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:flx_ui/flx_ui.dart' as flx2;
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -57,13 +56,9 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 15),
-                  flx2.FlxSpaciousButton(
+                  FlxButton(
                     text: 'Войти',
                     onTap: () => controller.onLoginButtonTap(),
-                    brush: flx2.FlxGlassBrush(
-                      backgroundColor: Colors.blue[800],
-                      isCanBlur: false,
-                    ),
                   ),
                   SizedBox(height: 15),
                   FlxButton(
