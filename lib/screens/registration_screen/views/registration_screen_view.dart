@@ -1,4 +1,3 @@
-import 'package:cp_delivery/common/common.dart';
 import 'package:cp_delivery/components/components.dart';
 import 'package:cp_delivery/screens/registration_screen/registration_screen.dart';
 import 'package:felix_ui/felix_ui.dart';
@@ -24,22 +23,11 @@ class RegistrationScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 50,
-                    child: Row(
-                      children: [
-                        FlxPointButton(
-                          onTap: () => Get.back(),
-                          icon: Icons.arrow_back,
-                        ),
-                        Expanded(
-                          child: Center(
-                            child:
-                                Text('Delivery Регистрация', style: titleStyle),
-                          ),
-                        ),
-                        SizedBox(width: 50, height: 50),
-                      ],
+                  TitleBar(
+                    title: 'Delivery Регистрация',
+                    leftButton: FlxPointButton(
+                      onTap: () => Get.back(),
+                      icon: Icons.arrow_back,
                     ),
                   ),
                   SizedBox(height: 15),

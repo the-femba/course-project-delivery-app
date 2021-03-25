@@ -23,14 +23,8 @@ class LoginScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 50,
-                    child: Center(
-                      child: Text(
-                        'Delivery Вход',
-                        style: flx2.FlxTextThemeGetx.title(),
-                      ),
-                    ),
+                  TitleBar(
+                    title: 'Delivery Вход',
                   ),
                   SizedBox(height: 15),
                   Expanded(
