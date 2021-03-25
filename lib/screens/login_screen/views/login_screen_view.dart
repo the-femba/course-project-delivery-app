@@ -1,9 +1,8 @@
-import 'package:cp_delivery/common/common.dart';
 import 'package:cp_delivery/components/components.dart';
 import 'package:cp_delivery/screens/login_screen/login_screen.dart';
 import 'package:cp_delivery/screens/registration_screen/registration_screen.dart';
-import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flx_ui/flx_ui.dart' as flx2;
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -26,8 +25,12 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: 50,
-                    child:
-                        Center(child: Text('Delivery Вход', style: titleStyle)),
+                    child: Center(
+                      child: Text(
+                        'Delivery Вход',
+                        style: flx2.FlxTextThemeGetx.title(),
+                      ),
+                    ),
                   ),
                   SizedBox(height: 15),
                   Expanded(
@@ -36,35 +39,31 @@ class LoginScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         child: Column(
                           children: [
-                            FlxTextField(
+                            flx2.FlxTextField(
+                              controller: controller.emailTextController,
                               placeholder: 'Email',
-                              onFocusChange: (focus) {},
-                              onTextChange: (TextEditingController value) =>
-                                  controller.emailText = value.text,
                             ),
                             SizedBox(height: 15),
-                            FlxTextField(
+                            flx2.FlxTextField(
+                              controller: controller.passwordTextController,
                               placeholder: 'Пароль',
-                              isMasked: true,
-                              onFocusChange: (focus) {},
-                              onTextChange: (TextEditingController value) =>
-                                  controller.passwordText = value.text,
+                              isConceal: true,
                             ),
                           ],
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
-                  FlxButton(
+                  SizedBox(height: 20),
+                  flx2.FlxSpaciousButton(
                     text: 'Войти',
                     onTap: () => controller.onLoginButtonTap(),
                   ),
                   SizedBox(height: 15),
-                  FlxButton(
+                  flx2.FlxSpaciousButton(
                     text: 'Регистрация',
                     onTap: () => RegistrationScreenRouter().navigate(),
-                    color: Colors.grey[800],
+                    backgroundColor: Colors.grey[800],
                   ),
                 ],
               ),

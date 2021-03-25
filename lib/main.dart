@@ -1,6 +1,6 @@
 import 'package:cp_delivery/screens/screens.dart';
-import 'package:felix_ui/felix_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:flx_ui/flx_ui.dart';
 import 'package:get/get.dart';
 
 import 'init_api.dart';
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Delivery',
-      darkTheme: FlxTheme.dark().data,
+      darkTheme: flxDarkTheme(),
       themeMode: ThemeMode.dark,
       getPages: [
         SplashScreenRouter().build(),

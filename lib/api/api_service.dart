@@ -100,20 +100,26 @@ class ApiService extends getx.GetxService {
         response = await _client.get<Map<String, dynamic>>(
           _address + path,
           queryParameters: query,
-          options: Options(headers: headers),
+          options: Options(
+            headers: headers,
+          ),
         );
       } else if (type == RequestType.post) {
         response = await _client.post<Map<String, dynamic>>(
           _address + path,
           queryParameters: query,
-          options: Options(headers: headers),
+          options: Options(
+            headers: headers,
+          ),
           data: body,
         );
       } else if (type == RequestType.delete) {
         response = await _client.delete<Map<String, dynamic>>(
           _address + path,
           queryParameters: query,
-          options: Options(headers: headers),
+          options: Options(
+            headers: headers,
+          ),
           data: body,
         );
       }

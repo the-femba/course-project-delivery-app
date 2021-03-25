@@ -1,7 +1,9 @@
 import 'package:cp_delivery/api/auth_api_binder.dart';
 import 'package:cp_delivery/screens/splash_screen/common/router.dart';
 import 'package:cp_delivery/utils/utils.dart';
+import 'package:dio/dio.dart';
 import 'package:felix_ui/routers/navigate_strategy.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,29 +13,32 @@ class RegistrationScreenController extends GetxController {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  String firstNameText = '';
-  String lastNameText = '';
-  String emailText = '';
-  String passwordText = '';
-  String repeatPasswordText = '';
+  final firstNameTextController = TextEditingController();
+  final lastNameTextController = TextEditingController();
+  final emailTextController = TextEditingController();
+  final passwordTextController = TextEditingController();
+  final repeatPasswordTextController = TextEditingController();
 
   Future onRegistrationButtonTap() async {
     _isLoading = true;
     update();
 
+    // TODO: Remove Fake
+    await Future.delayed(Duration(milliseconds: 250));
+
     try {
       var authApiBinder = AuthApiBinder();
 
       await authApiBinder.singIn(
-        firstName: firstNameText.trim().toLowerCase(),
-        lastName: lastNameText.trim().toLowerCase(),
-        email: emailText.trim(),
-        password: passwordText,
+        firstName: firstNameTextController.text.trim().toLowerCase(),
+        lastName: lastNameTextController.text.trim().toLowerCase(),
+        email: emailTextController.text.trim(),
+        password: passwordTextController.text,
       );
 
       var singUpResult = await authApiBinder.singUp(
-        email: emailText.trim(),
-        password: passwordText,
+        email: emailTextController.text.trim(),
+        password: passwordTextController.text,
       );
 
       var prefs = await SharedPreferences.getInstance();
@@ -51,6 +56,8 @@ class RegistrationScreenController extends GetxController {
         'Неправильный формат',
         'Проверьте формат введенных данных',
       );
+    } on DioError {
+      showSnackbar('Ошибка', 'Проверьте подключение к интернету');
     } on Exception catch (e) {
       showSnackbar(
         'Ошибка',

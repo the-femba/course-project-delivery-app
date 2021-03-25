@@ -106,11 +106,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "2.0.0-candidate"
-      resolved-ref: f4d0b84eea6f3670c572597563a21232685efbd2
+      ref: "2.1.1-candidate"
+      resolved-ref: "05e665f8543ffbab43278621010ea91a43dcda0d"
       url: "https://github.com/the-flx/FlxUI.git"
     source: git
-    version: "2.0.0"
+    version: "2.1.0"
   get:
     dependency: "direct main"
     description:
