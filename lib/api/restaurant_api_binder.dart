@@ -23,6 +23,23 @@ class RestaurantInformation {
             json['photosData']['backwardPhotoBase64'] as String;
 }
 
+class FoodInformation {
+  final String name;
+  final double price;
+  final String foodPhotoBase64;
+
+  FoodInformation({
+    @required this.name,
+    @required this.foodPhotoBase64,
+    @required this.price,
+  });
+
+  FoodInformation.fromJson(Map<String, dynamic> json)
+      : name = json['name'] as String,
+        price = json['priceGrn'].roundToDouble() as double,
+        foodPhotoBase64 = json['foodPhotoBase64'] as String;
+}
+
 class RestaurantApiBinder {
   final _apiService = Get.find<ApiService>();
 
@@ -58,5 +75,31 @@ class RestaurantApiBinder {
     );
 
     return RestaurantInformation.fromJson(result);
+  }
+
+  Future<List<String>> getRestaurantFoodsIds(String id) async {
+    var result = await _apiService.send(
+      '/v1/restaurant/getRestaurantsFoods',
+      RequestType.get,
+      query: {
+        'id': id,
+      },
+    );
+
+    var dResult = result['restaurantFoodsIds'] as List<dynamic>;
+
+    return dResult.map((e) => e as String).toList();
+  }
+
+  Future<FoodInformation> getFoodInformation(String id) async {
+    var result = await _apiService.send(
+      '/v1/restaurant/getFoodInformation',
+      RequestType.get,
+      query: {
+        'id': id,
+      },
+    );
+
+    return FoodInformation.fromJson(result);
   }
 }

@@ -41,6 +41,7 @@ class RestaurantCard extends StatelessWidget {
           'title': controller.information.name,
           'backwardPhotoBase64': controller.information.backwardPhotoBase64,
           'logoPhotoBase64': controller.information.logoPhotoBase64,
+          'restaurantId': restaurantId,
         },
       ),
       child: ClipRRect(
