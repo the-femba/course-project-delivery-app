@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         LoginScreenRouter().build(),
         RegistrationScreenRouter().build(),
         HomeScreenRouter().build(),
+        RestaurantScreenRouter().build(),
       ],
       initialRoute: SplashScreenRouter().name,
     );

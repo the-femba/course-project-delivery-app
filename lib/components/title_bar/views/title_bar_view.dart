@@ -5,13 +5,13 @@ import 'package:flx_ui/flx_ui.dart' as flx2;
 class TitleBar extends StatelessWidget {
   final String title;
   final FlxPointButton leftButton;
-  final FlxPointButton rightButton;
+  final Widget right;
 
   const TitleBar({
     @required this.title,
     Key key,
     this.leftButton,
-    this.rightButton,
+    this.right,
   }) : super(key: key);
 
   @override
@@ -23,13 +23,16 @@ class TitleBar extends StatelessWidget {
           leftButton ?? SizedBox(width: 50),
           Expanded(
             child: Center(
-              child: Text(
-                title,
-                style: flx2.FlxTextTheme.title(context),
+              child: Hero(
+                tag: title,
+                child: Text(
+                  title,
+                  style: flx2.FlxTextTheme.title(context),
+                ),
               ),
             ),
           ),
-          rightButton ?? SizedBox(width: 50),
+          SizedBox(width: 50, child: right) ?? SizedBox(width: 50),
         ],
       ),
     );

@@ -11,8 +11,15 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            TitleBar(
-              title: 'Delivery Рестораны',
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 15,
+                left: 25,
+                right: 25,
+              ),
+              child: TitleBar(
+                title: 'Delivery Рестораны',
+              ),
             ),
             Expanded(
               child: GetBuilder<HomeScreenController>(
