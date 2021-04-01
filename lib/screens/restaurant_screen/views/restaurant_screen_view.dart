@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:cp_delivery/components/components.dart';
 import 'package:cp_delivery/screens/restaurant_screen/restaurant_screen.dart';
+import 'package:cp_delivery/screens/screens.dart';
 import 'package:felix_ui/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flx_ui/flx_ui.dart' as flx2;
@@ -84,8 +85,8 @@ class RestaurantScreen extends StatelessWidget {
                   Text('Сумма: ${controller.getFoodsSum()} грн.'),
                   SizedBox(height: 10),
                   flx2.FlxSpaciousButton(
-                    text: 'Корзина',
-                    onTap: () {},
+                    text: 'Купить',
+                    onTap: () => controller.handleBuyTap(),
                   ),
                 ],
               ),
@@ -98,7 +99,7 @@ class RestaurantScreen extends StatelessWidget {
 
   Widget buildFoodsList(RestaurantScreenController controller) {
     return ListView.builder(
-      itemCount: controller.foods.length,
+      itemCount: controller.foods != null ? controller.foods.length : 0,
       padding: EdgeInsets.symmetric(
         horizontal: 25,
         vertical: 25,

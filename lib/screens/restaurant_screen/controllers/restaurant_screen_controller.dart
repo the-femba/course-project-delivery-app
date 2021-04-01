@@ -1,22 +1,28 @@
+import 'package:cp_delivery/api/order_api_binder.dart';
 import 'package:cp_delivery/api/restaurant_api_binder.dart';
+import 'package:cp_delivery/screens/status_screen/status_screen.dart';
+import 'package:cp_delivery/utils/utils.dart';
 import 'package:get/get.dart';
 
 class RestaurantScreenFoodInformation {
   final FoodInformation information;
+  final String id;
   int count = 0;
 
-  RestaurantScreenFoodInformation(this.information);
+  RestaurantScreenFoodInformation(this.id, this.information);
 }
 
 class RestaurantScreenController extends GetxController {
   final String _restaurantId;
 
   List<RestaurantScreenFoodInformation> _foods;
+
   List<RestaurantScreenFoodInformation> get foods => _foods;
 
   RestaurantScreenController(this._restaurantId);
 
   @override
+  // ignore: avoid_void_async
   void onInit() async {
     var binder = RestaurantApiBinder();
 
@@ -24,6 +30,7 @@ class RestaurantScreenController extends GetxController {
 
     var foodRpMap = foodsIds.map(
       (e) async => RestaurantScreenFoodInformation(
+        e,
         await binder.getFoodInformation(e),
       ),
     );
@@ -64,5 +71,35 @@ class RestaurantScreenController extends GetxController {
     var prices = checked.map((e) => e.information.price * e.count).toList();
 
     return prices.fold(0, (p, e) => p + e);
+  }
+
+  // ignore: avoid_void_async
+  void handleBuyTap() async {
+    var selectedFoods = foods.where((e) => e.count > 0);
+
+    if (!selectedFoods.isNotEmpty) {
+      return;
+    }
+
+    List<String> foodsIds = [];
+
+    for (var food in selectedFoods) {
+      for (int i = 0; i < food.count; i++) {
+        foodsIds.add(food.id);
+      }
+    }
+
+    var orderId = await OrderApiBinder().createOrder(
+      restaurantId: _restaurantId,
+      foodsIds: foodsIds,
+      token: await TokenUtil().getToken(),
+    );
+
+    Get.offAllNamed(
+      StatusScreenRouter().name,
+      arguments: {
+        'orderId': orderId,
+      },
+    );
   }
 }

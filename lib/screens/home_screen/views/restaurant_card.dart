@@ -106,10 +106,7 @@ class RestaurantCard extends StatelessWidget {
                                   controller.information.name,
                                   style: flx2.FlxTextTheme.title(context),
                                 ),
-                                child: Text(
-                                  controller.information.name,
-                                  style: flx2.FlxTextTheme.subtitle(context),
-                                ),
+                                child: Text(controller.information.name),
                               ),
                               SizedBox(height: 10),
                               Text(
