@@ -22,11 +22,13 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: GetBuilder<HomeScreenController>(
-                init: HomeScreenController(),
-                builder: (controller) => controller.restaurantsIds != null
-                    ? buildList(controller)
-                    : Center(child: Loader()),
+              child: WebBox(
+                child: GetBuilder<HomeScreenController>(
+                  init: HomeScreenController(),
+                  builder: (controller) => controller.restaurantsIds != null
+                      ? buildList(controller)
+                      : Center(child: Loader()),
+                ),
               ),
             ),
           ],

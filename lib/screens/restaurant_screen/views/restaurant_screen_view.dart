@@ -25,13 +25,13 @@ class RestaurantScreen extends StatelessWidget {
             flx2.FlxDeepCard(
               child: Stack(
                 children: [
-                  Positioned(
+                  Positioned.fill(
                     top: 0,
                     child: Image.memory(
                       Uint8List.fromList(
                         base64.decode(backwardPhotoBase64),
                       ),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   Positioned.fill(
@@ -68,27 +68,35 @@ class RestaurantScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: controller.foods != null
-                  ? buildFoodsList(controller)
-                  : Center(child: Loader()),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 25,
-                right: 25,
-                bottom: 25,
-                top: 15,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Сумма: ${controller.getFoodsSum()} грн.'),
-                  SizedBox(height: 10),
-                  flx2.FlxSpaciousButton(
-                    text: 'Купить',
-                    onTap: () => controller.handleBuyTap(),
-                  ),
-                ],
+              child: WebBox(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: controller.foods != null
+                          ? buildFoodsList(controller)
+                          : Center(child: Loader()),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 25,
+                        right: 25,
+                        bottom: 25,
+                        top: 15,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Сумма: ${controller.getFoodsSum()} грн.'),
+                          SizedBox(height: 10),
+                          flx2.FlxSpaciousButton(
+                            text: 'Купить',
+                            onTap: () => controller.handleBuyTap(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

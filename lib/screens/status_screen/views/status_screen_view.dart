@@ -17,76 +17,90 @@ class StatusScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TitleBar(title: 'Статус заказа'),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 25,
+                  bottom: 15,
+                ),
+                child: TitleBar(title: 'Статус заказа'),
+              ),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 25,
-                      vertical: 10,
-                    ),
-                    child: GetBuilder<StatusScreenController>(
-                      init: StatusScreenController(orderId),
-                      builder: (controller) => Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          StepByStep(
-                            step: 1,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.searchForCourier,
-                            text: 'Поиск курьера',
+                child: WebBox(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 25,
+                              vertical: 10,
+                            ),
+                            child: GetBuilder<StatusScreenController>(
+                              init: StatusScreenController(orderId),
+                              builder: (controller) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  StepByStep(
+                                    step: 1,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.searchForCourier,
+                                    text: 'Поиск курьера',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 2,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.courierGoesToRestaurant,
+                                    text: 'Курьер идет в ресторан',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 3,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.courierCameToRestaurant,
+                                    text: 'Курьер пришел в ресторан',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 4,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.restaurantPreparedFood,
+                                    text: 'Ресторан готовит еду',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 5,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.restaurantPreparesFood,
+                                    text: 'Ресторан приготовил еду',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 6,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.courierGoesToCustomer,
+                                    text: 'Курьер несет еду заказчику',
+                                  ),
+                                  StepDivider(),
+                                  StepByStep(
+                                    step: 7,
+                                    isTarget: controller.orderStatus ==
+                                        OrderStatus.done,
+                                    text: 'Заказ доставлен',
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 2,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.courierGoesToRestaurant,
-                            text: 'Курьер идет в ресторан',
-                          ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 3,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.courierCameToRestaurant,
-                            text: 'Курьер пришел в ресторан',
-                          ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 4,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.restaurantPreparedFood,
-                            text: 'Ресторан готовит еду',
-                          ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 5,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.restaurantPreparesFood,
-                            text: 'Ресторан приготовил еду',
-                          ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 6,
-                            isTarget: controller.orderStatus ==
-                                OrderStatus.courierGoesToCustomer,
-                            text: 'Курьер несет еду заказчику',
-                          ),
-                          StepDivider(),
-                          StepByStep(
-                            step: 7,
-                            isTarget:
-                                controller.orderStatus == OrderStatus.done,
-                            text: 'Заказ доставлен',
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.all(25),
+                        child: Text('Осталось 15 минут'),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(25),
-                child: Text('Осталось 15 минут'),
               ),
             ],
           ),
