@@ -63,7 +63,7 @@ packages:
       path: "."
       ref: "1.0.0"
       resolved-ref: dc83d554250049f4848d010b96d6084ba79f57f4
-      url: "https://github.com/the-flx/FlxUI.git"
+      url: "https://github.com/the-flx/flx-ui.git"
     source: git
     version: "0.1.0"
   ffi:
@@ -102,13 +102,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flx_lint:
+    dependency: "direct dev"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "60b4f334fe6b039eac032abcad6d427732846d54"
+      url: "https://github.com/the-flx/flx-lint.git"
+    source: git
+    version: "0.1.0+1"
   flx_ui:
     dependency: "direct main"
     description:
       path: "."
       ref: "2.1.1-candidate"
       resolved-ref: "05e665f8543ffbab43278621010ea91a43dcda0d"
-      url: "https://github.com/the-flx/FlxUI.git"
+      url: "https://github.com/the-flx/flx-ui.git"
     source: git
     version: "2.1.0"
   get:
@@ -154,7 +163,7 @@ packages:
     source: hosted
     version: "0.6.3"
   lint:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: lint
       url: "https://pub.dartlang.org"
@@ -203,7 +212,7 @@ packages:
     source: hosted
     version: "2.0.0"
   pedantic:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
@@ -332,7 +341,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.19"
+    version: "0.3.0"
   typed_data:
     dependency: transitive
     description:
