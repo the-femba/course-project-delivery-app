@@ -26,5 +26,5 @@ void initApi() {
     (errorData) => throw ValidationException(),
   );
 
-  Get.put<ApiService>(apiSrv).init('http://10.0.2.2:27414');
+  Get.put<ApiService>(apiSrv).init('https://api.delivery.flx.pub');
 }
